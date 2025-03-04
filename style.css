@@ -1,0 +1,243 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 60px 60px 1fr;
+    align-content: end;
+    height: 100vh;
+
+}
+
+.sidebar {
+    display: grid;
+    grid-row: 1/4;
+    background-color: lightskyblue;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-self: end;
+}
+
+
+.iconSmall {
+    width: 30px;
+    height: 30px;
+    justify-self: end;
+
+}
+
+
+
+.searchIcon,
+.notificationIcon,
+.profileIcon {
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.searchBar {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px;
+}
+
+.searchBar * {
+    margin: 8px;
+
+}
+
+.left,
+.right {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    flex: 1;
+    border-radius: 16px;
+    border: 1px solid lightblue;
+    background-color: aliceblue;
+}
+
+.left {
+    flex: 1;
+    max-width: 500px;
+}
+
+
+.topbar {
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.topbarLeft {
+    display: flex;
+    align-items: center;
+}
+
+.topbarButton {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 8px 24px;
+}
+
+.topbarButton button {
+    height: 30px;
+    background-color: lightskyblue;
+    border: 0px;
+    border-radius: 16px;
+    padding: 4px 12px;
+}
+
+.topbar img {
+    margin: 8px;
+    margin-left: 24px;
+}
+
+.greeting {
+    min-width: 240px
+}
+
+.card {
+    grid-row: 3;
+    grid-column: 2;
+    background-color: lightgrey;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.project {
+    display: grid;
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+}
+
+.project div {
+    border: 1px black solid;
+}
+.cardHolder > div {
+    display: flex;
+    flex-direction: column;
+    border: 1px black solid;
+    height: 150px;
+}
+
+.cardHolder > div > p {
+    flex: 1 1 auto;
+}
+
+.cardHolder img {
+    width: 30px;
+    height: 30px;
+}
+
+.share {
+    display: flex;
+}
+
+.projectTitle {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.cardHolder {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+
+.suggestion {
+    border: 1px black solid;
+}
+
+
