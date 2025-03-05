@@ -68,31 +68,35 @@ h6 {
 #__next {
     isolation: isolate;
 }
+:root {
+    --card-border-color: #ebbb4c;
+}
 
 .container {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 60px 60px 1fr;
-    align-content: end;
-    height: 100vh;
-
 }
+
 
 .sidebar {
     display: grid;
     grid-row: 1/4;
     background-color: lightskyblue;
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 60px 1fr;
+    grid-auto-rows: 40px;
     align-items: center;
     gap: 8px;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
 }
 
 .icon {
     width: 50px;
     height: 50px;
-    background-size: contain;
-    background-repeat: no-repeat;
     justify-self: end;
+    padding: 4px;
 }
 
 
@@ -152,6 +156,7 @@ input {
     grid-column: 2;
     display: flex;
     justify-content: space-between;
+    border-bottom: 3px solid lightcyan;
 
 }
 
@@ -185,8 +190,8 @@ input {
 }
 
 .card {
-    grid-row: 3;
-    grid-column: 2;
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
     background-color: lightgrey;
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -195,22 +200,29 @@ input {
 
 .project {
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 1fr;
     grid-row: 1 / 3;
     grid-column: 1 / 2;
 }
 
-.project div {
-    border: 1px black solid;
-}
-.cardHolder > div {
+
+.cardHolder>div {
     display: flex;
     flex-direction: column;
-    border: 1px black solid;
-    height: 150px;
+    background-color: white;
+    border-radius: 15px;
+    border-left: 5px solid var(--card-border-color);
 }
 
-.cardHolder > div > p {
+.cardHolder>div>p {
     flex: 1 1 auto;
+    padding: 4px;
+    font-size: 12px;
+}
+
+.cardHolder>div>p:first-child {
+    flex: 0 0 20px;
 }
 
 .cardHolder img {
@@ -222,9 +234,11 @@ input {
     display: flex;
 }
 
-.projectTitle {
+.projecttitle {
     grid-row: 1;
     grid-column: 1;
+    font-weight: bold;
+    padding-left: 12px;
 }
 
 .cardHolder {
@@ -232,12 +246,156 @@ input {
     grid-column: 1 / 2;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
+    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 24px;
+    margin: 8px;
 }
 
 .suggestion {
-    border: 1px black solid;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.share {
+    align-self: flex-end;
+    padding: 4px;
+}
+
+hr.solid {
+    border-top: 1px solid #bbb;
+    opacity: 30%;
+  }
+
+h2 {
+    font-size: 12px;
+}
+
+.suggestion > * {
+    flex: 1;
+}
+.announcement {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    margin: 8px;
+    padding: 8px;
+}
+
+.announcement > * {
+    flex: 1;
+}
+
+#announcement {
+    font-weight: bold;
+    padding-left: 8px;
 }
 
 
+
+.suggestion div:first-child {
+    height: 40px;
+    font-size: 16px;
+    flex: 0 0 auto;
+}
+
+.trending>div>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.trending {
+    display: flex;
+    flex-direction: column;
+}
+
+.trending>p {
+    height: 40px;
+    font-size: 16px;
+    flex: 0 0 auto;
+}
+
+.trending>div {
+    flex: 1;
+    margin: 8px 4px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.trending>div>* {
+    flex: 1;
+    margin: 4px 4px;
+}
+
+.trending img {
+    max-width: 36px;
+    max-height: 36px;
+}
+
+.right span {
+    font-weight: bold;
+}
+
+.greeting {
+    font-weight: bold;
+}
+
+.topbarButton button {
+    color: white;
+}
+.projectTitleDiv {
+    display: flex;
+    align-items: flex-end;
+}
+
+.announcementsDiv {
+    display: flex;
+    align-items: flex-end;
+    flex: 0;
+}
+
+#trendingDiv {
+    flex: 0 0 40px;
+    display: flex;
+    align-items: flex-end;
+    font-size: 16px;
+    margin: 0px;
+}
+
+#trendingDiv>p {
+    margin: 0px;
+}
+
+div.trendingItem1,
+div.trendingItem2,
+div.trendingItem3,
+div.trendingItem4 {
+    background-color: white;
+    border-radius: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+.cardHolder {
+    grid-template-columns: minmax(200px, 1fr);
+}
+.card {
+    grid-template-columns: 2fr 1fr;
+}
+.solid {
+    flex: 0;
+}
+.topbar {
+    display: grid;
+    grid-template-rows: 60px 60px;
+    grid-template-columns: 1fr;
+}
+.container {
+    grid-template-rows: 60px 120px 1fr; 
+}
+.topbarButton{
+    justify-content: flex-end;
+}
+}
